@@ -8,7 +8,6 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const [products] = await productsModel.getById(id);
-  console.log(products);
   if (!products) throw new ErrorHandler(404, 'Product not found');
   
   return products;
