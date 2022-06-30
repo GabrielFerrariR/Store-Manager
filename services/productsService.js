@@ -1,5 +1,6 @@
-const { ErrorHandler } = require('../helpers');
+const { ErrorBody, validationErrHandler } = require('../helpers');
 const productsModel = require('../models/productsModel');
+const { nameSchema } = require('../schemas');
 
 const getAll = async () => {
   const products = await productsModel.getAll();
@@ -8,14 +9,14 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const [products] = await productsModel.getById(id);
-  if (!products) throw new ErrorHandler(404, 'Product not found');
+  if (!products) throw new ErrorBody(404, 'Product not found');
   
   return products;
 };
 
 const add = async (body) => {
   const { name } = body;
-  if (!name) throw new ErrorHandler(400, 'Insert product name');
+  validationErrHandler(nameSchema, body);
   const [newProduct] = await productsModel.add(name);
   return {
     id: newProduct.insertId,
