@@ -13,7 +13,18 @@ const getById = async (id) => {
   return products;
 };
 
+const add = async (body) => {
+  const { name } = body;
+  if (!name) throw new ErrorHandler(400, 'Insert product name');
+  const [newProduct] = await productsModel.add(name);
+  return {
+    id: newProduct.insertId,
+    name,
+  };
+};
+
 module.exports = {
   getAll,
   getById,
+  add,
 };

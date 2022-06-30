@@ -54,5 +54,24 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "dcdf6158-39fa-4865-8bf8-bb7b6c5acfe7",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products",
+    "url": "localhost:3000/products",
+    "method": "POST",
+    "sortNum": 0,
+    "created": "2022-06-30T20:10:51.463Z",
+    "modified": "2022-06-30T20:14:24.321Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\" : \"produtox\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
