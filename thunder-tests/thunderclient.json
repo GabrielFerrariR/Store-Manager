@@ -12,5 +12,19 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "a6a2eabb-254f-4d4b-ba15-a4e534fded32",
+    "colId": "2f289d11-f031-43f1-89eb-6a058462250d",
+    "containerId": "",
+    "name": "get/",
+    "url": "localhost:3000/sales",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2022-06-30T21:20:37.124Z",
+    "modified": "2022-06-30T21:32:57.527Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

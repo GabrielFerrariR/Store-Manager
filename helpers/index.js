@@ -13,7 +13,7 @@ function validationErrHandler(schema, toValidate) {
       case 'string.min':
         throw new ErrorBody(422, message);
       default:
-        throw new ErrorBody(400, "Erro não tratado");
+        throw new ErrorBody(400, 'Erro não tratado');
     }
   }
   return value;
