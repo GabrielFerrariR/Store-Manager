@@ -2,7 +2,6 @@ const { expect } = require("chai");
 const sinon = require("sinon");
 const salesService = require("../../../services/salesService");
 const salesController = require("../../../controllers/salesController");
-const { error } = require("shelljs");
 
 describe("SalesController", () => {
   const res = {};
@@ -40,19 +39,5 @@ describe("SalesController", () => {
       await salesController.add(req, res, next);
       expect(res.json.calledWith(productList)).to.be.equal(true);
     });
-    
   });
-  // describe('next', () => {
-  //   after(sinon.restore);
-  //   it('Captura um erro caso houver', async () => {
-  //     sinon.stub(salesService, "add").resolves(Error);
-  //     try {
-  //       await salesController.add(req, res, next);
-  //       expect().to.be.equal(error)
-  //     } catch (erro) {
-  //       expect(erro).to.throw();
-  //     }
-  //   })
-    
-  // })
-  });
+});
