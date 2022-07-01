@@ -34,9 +34,18 @@ const update = async (body, id) => {
     throw new ErrorBody(404, 'Product not found');
 };
 
+const remove = async (id) => {
+  const { affectedRows } = await productsModel.remove(id);
+  if (affectedRows > 0) { 
+    return true;
+  }
+  throw new ErrorBody(404, 'Product not found');
+};
+
 module.exports = {
   getAll,
   getById,
   add,
   update,
+  remove,
 };

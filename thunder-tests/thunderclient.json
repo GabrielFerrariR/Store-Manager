@@ -57,5 +57,19 @@
     "created": "2022-07-01T18:46:11.650Z",
     "modified": "2022-07-01T18:46:20.626Z",
     "headers": []
+  },
+  {
+    "_id": "89b16580-8100-40a1-972a-da042234a8ba",
+    "colId": "1ae350ad-e819-4c4c-bce1-f98fae70141b",
+    "containerId": "",
+    "name": "delete/:id",
+    "url": "localhost:3000/products/5",
+    "method": "DELETE",
+    "sortNum": 30000,
+    "created": "2022-07-01T19:23:28.786Z",
+    "modified": "2022-07-01T19:28:19.016Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
