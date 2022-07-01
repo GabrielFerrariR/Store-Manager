@@ -24,8 +24,19 @@ const add = async (body) => {
   };
 };
 
+const update = async (body, id) => {
+  validationErrHandler(nameSchema, body);
+    const { affectedRows } = await productsModel.update(body.name, id);
+    if (affectedRows > 0) {
+      const [result] = await productsModel.getById(id);
+      return result;
+    }
+    throw new ErrorBody(404, 'Product not found');
+};
+
 module.exports = {
   getAll,
   getById,
   add,
+  update,
 };
