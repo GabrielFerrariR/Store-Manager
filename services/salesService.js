@@ -30,8 +30,17 @@ const getById = async (id) => {
   return result.map(saleIdSerialize);
 };
 
+const remove = async (id) => {
+  const { affectedRows } = await salesModel.remove(id);
+  if (affectedRows > 0) {
+    return true;
+  }
+  throw new ErrorBody(404, 'Sale not found');
+};
+
 module.exports = {
   add,
   getAll,
   getById,
+  remove,
 };
