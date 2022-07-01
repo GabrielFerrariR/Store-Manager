@@ -1,8 +1,10 @@
 const express = require('express');
-const { add } = require('../controllers/salesController');
+const { add, getAll, getById } = require('../controllers/salesController');
 
 const route = express.Router();
 
-route.post('/', add);
+route.post('/', add)
+  .get('/', getAll)
+  .get('/:id', getById);
 
 module.exports = route;

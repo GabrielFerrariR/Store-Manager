@@ -18,6 +18,33 @@ const add = async (body) => {
   if (isAnyEmpty) throw new ErrorBody(404, 'Product not found');
 };
 
+const listSaleSchema = (sale) => ({
+  saleId: sale.sale_id,
+  date: sale.date,
+  productId: sale.product_id,
+  quantity: sale.quantity,
+});
+
+const saleIdSchema = (sale) => ({
+  date: sale.date,
+  productId: sale.product_id,
+  quantity: sale.quantity,
+});
+
+const getAll = async () => {
+  const result = await salesModel.getAll();
+  return result.map(listSaleSchema);
+};
+
+const getById = async (id) => {
+  const result = await salesModel.getSaleById(id);
+  console.log(result);
+  if (result.length === 0) throw new ErrorBody(404, 'Sale not found');
+  return result.map(saleIdSchema);
+};
+
 module.exports = {
   add,
+  getAll,
+  getById,
 };
