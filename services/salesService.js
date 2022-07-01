@@ -1,6 +1,7 @@
 const { validationErrHandler, ErrorBody } = require('../helpers');
 const { saleSchema, listSaleSerialize, saleIdSerialize } = require('../schemas');
 const salesModel = require('../models/salesModel');
+const productsService = require('./productsService');
 
 const add = async (body) => {
   body.forEach((prod) => validationErrHandler(saleSchema, prod));
@@ -38,9 +39,28 @@ const remove = async (id) => {
   throw new ErrorBody(404, 'Sale not found');
 };
 
+const update = async (body, id) => {
+  body.map((prod) => validationErrHandler(saleSchema, prod));
+  await Promise.all(body.map(async (e) => productsService.getById(e.productId)));
+  const updates = await Promise.all(body.map(async ({ productId, quantity }) => 
+    salesModel.update(id, productId, quantity)));
+  // const array = await Promise.all(updates);
+  console.log('array ->>>>>', updates);
+  const { affectedRows } = updates[0];
+  // console.log("affected ->>>>>", affectedRows);
+  if (affectedRows > 0) {
+    return {
+      saleId: id,
+      itemsUpdated: body,
+    };
+  }
+  throw new ErrorBody(404, 'Sale not found');
+};
+
 module.exports = {
   add,
   getAll,
   getById,
   remove,
+  update,
 };

@@ -5,7 +5,7 @@ const nameSchema = Joi.object({
 });
 
 const saleSchema = Joi.object({
-  productId: Joi.required(),
+  productId: Joi.number().required(),
   quantity: Joi.number().required().min(1),
 });
 
