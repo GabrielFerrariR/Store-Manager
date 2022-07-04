@@ -7,6 +7,7 @@ describe('Controller de produtos', () => {
   const res = {};
   const req = {};
   const next = () => { };
+
   describe('caso de sucesso', () => {
     const productList = [{}, {}, {}];
     const item = {};
@@ -15,6 +16,7 @@ describe('Controller de produtos', () => {
       res.json = sinon.stub().returns();
     })
     afterEach(sinon.restore);
+
     describe('getAll', () => {
       beforeEach(() => {
         sinon.stub(productsService, "getAll").resolves(productList);
@@ -27,7 +29,8 @@ describe('Controller de produtos', () => {
         await productsController.getAll(req, res, next);
         expect(res.json.calledWith(sinon.match.array)).to.be.equal(true);
       })
-    })
+    });
+
     describe("getById", () => {
       beforeEach(() => {
         req.params = sinon.stub().returns(req);
@@ -45,8 +48,9 @@ describe('Controller de produtos', () => {
         expect(res.json.calledWith(sinon.match.object)).to.be.equal(true);
       });
     });
+
     describe('add', async () => {
-      beforeEach(() => { 
+      beforeEach(() => {
         sinon.stub(productsService, "add").resolves({ id: 1, name: "ProdutoX" })
       });
       afterEach(sinon.restore);
@@ -54,7 +58,70 @@ describe('Controller de produtos', () => {
         await productsController.add(req, res, next);
         expect(res.status.calledWith(201)).to.be.equal(true);
       });
-    })
+      it('o resultado da chamada deve ser um objeto com id e nome', async () => {
+        await productsController.add(req, res, next);
+        expect(res.json.calledWith({ id: 1, name: "ProdutoX" })).to.be.equal(true);
+      })
+    });
+
+    describe("update", async () => {
+      beforeEach(() => {
+        sinon.stub(productsService, "update").resolves({
+          id: 1,
+          name: "Martelo do Batman",
+        });
+        req.params = sinon.stub().returns(req);
+      });
+      afterEach(sinon.restore);
+      it("responde com status 200", async () => {
+        await productsController.update(req, res, next);
+        expect(res.status.calledWith(200)).to.be.equal(true);
+      });
+      it("deve retornar um objeto com o id do produto alterado e o nome", async () => {
+        await productsController.update(req, res, next);
+        expect(
+          res.json.calledWith({
+            id: 1,
+            name: "Martelo do Batman",
+          })
+        ).to.be.deep.equal(true);
+      });
+      expect(res.json)
+    });
+
+    describe("remove", async () => {
+      beforeEach(() => {
+        sinon.stub(productsService, "remove").resolves();
+        req.params = sinon.stub().returns(req);
+      });
+      afterEach(sinon.restore);
+      it("responde com status 204", async () => {
+        await productsController.remove(req, res, next);
+        expect(res.status.calledWith(204)).to.be.equal(true);
+      });
+    });
+
+    describe("findByName", async () => {
+      beforeEach(() => {
+        sinon.stub(productsService, "findByName").resolves([
+          {
+            id: 1,
+            name: "Martelo de Thor",
+          },
+        ]);
+        req.query = sinon.stub().returns(req);
+      });
+      afterEach(sinon.restore);
+      it("responde com status 200", async () => {
+        await productsController.findByName(req, res, next);
+        expect(res.status.calledWith(200)).to.be.equal(true);
+      });
+      it('responde com um array de objetos', async () => {
+        await productsController.findByName(req, res, next);
+        expect(res.json.calledWith(sinon.match.array)).to.be.equal(true);
+      })
+      })
+    });
   })
 
   describe('caso de erro', () => {

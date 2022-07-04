@@ -56,18 +56,19 @@
     "colId": "1ae350ad-e819-4c4c-bce1-f98fae70141b",
     "containerId": "",
     "name": "put/:id",
-    "url": "localhost:3000/products",
-    "method": "POST",
+    "url": "localhost:3000/products/search?q=marte",
+    "method": "GET",
     "sortNum": 20000,
     "created": "2022-07-01T18:46:11.650Z",
-    "modified": "2022-07-04T17:18:07.789Z",
+    "modified": "2022-07-04T18:23:16.646Z",
     "headers": [],
-    "params": [],
-    "body": {
-      "type": "json",
-      "raw": "{\n    \"name\": \"ProdutoX\"\n  }",
-      "form": []
-    },
+    "params": [
+      {
+        "name": "q",
+        "value": "marte",
+        "isPath": false
+      }
+    ],
     "tests": []
   },
   {
