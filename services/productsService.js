@@ -42,10 +42,20 @@ const remove = async (id) => {
   throw new ErrorBody(404, 'Product not found');
 };
 
+const findByName = async (q) => {
+  if (!q) {
+    const allProducts = await productsModel.getAll();
+    return allProducts;
+  }
+  const product = await productsModel.findByName(q);
+  return product;
+};
+
 module.exports = {
   getAll,
   getById,
   add,
   update,
   remove,
+  findByName,
 };

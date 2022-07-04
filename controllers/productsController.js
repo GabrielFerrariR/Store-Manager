@@ -48,10 +48,22 @@ const remove = async (req, res, next) => {
   }
 };
 
+const findByName = async (req, res, next) => {
+  try {
+    const { q } = req.query;
+    console.log(req.query, q);
+    const result = await productsService.findByName(q);
+    return res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getAll,
   getById,
   add,
   update,
   remove,
+  findByName,
 };

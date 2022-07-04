@@ -44,10 +44,8 @@ const update = async (body, id) => {
   await Promise.all(body.map(async (e) => productsService.getById(e.productId)));
   const updates = await Promise.all(body.map(async ({ productId, quantity }) => 
     salesModel.update(id, productId, quantity)));
-  // const array = await Promise.all(updates);
   console.log('array ->>>>>', updates);
   const { affectedRows } = updates[0];
-  // console.log("affected ->>>>>", affectedRows);
   if (affectedRows > 0) {
     return {
       saleId: id,

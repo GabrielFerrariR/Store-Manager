@@ -47,7 +47,6 @@ const update = async (id, productId, quantity) => {
       'UPDATE sales_products SET  quantity = ? WHERE sale_id = ? AND product_id = ?;',
       [quantity, id, productId],
     );
-  console.log('produto -------- ', product);
     return product;
 };
 

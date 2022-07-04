@@ -95,5 +95,25 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "4a9a89b0-23b3-4929-a00c-c5ff654d972d",
+    "colId": "2f289d11-f031-43f1-89eb-6a058462250d",
+    "containerId": "",
+    "name": "get/search",
+    "url": "localhost:3000/products/search?q=Martelo",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2022-07-04T13:52:05.000Z",
+    "modified": "2022-07-04T14:20:08.804Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "q",
+        "value": "Martelo",
+        "isPath": false
+      }
+    ],
+    "tests": []
   }
 ]

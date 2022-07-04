@@ -25,9 +25,17 @@ const update = async (name, id) => {
 };
 
 const remove = async (id) => {
-  const query = 'DELETE FROM products WHERE id=?';
+  const query = 'DELETE FROM products WHERE id = ?';
   const [removed] = await connection.execute(query, [id]);
   return removed;
+};
+
+const findByName = async (q) => {
+  const bindParam = `%${q}%`;
+  console.log(bindParam);
+  const query = 'SELECT * FROM products WHERE name LIKE ?';
+  const [product] = await connection.execute(query, [bindParam]);
+  return product;
 };
 
 module.exports = {
@@ -36,4 +44,5 @@ module.exports = {
   add,
   update,
   remove,
+  findByName,
 };
