@@ -56,12 +56,19 @@
     "colId": "1ae350ad-e819-4c4c-bce1-f98fae70141b",
     "containerId": "",
     "name": "put/:id",
-    "url": "",
-    "method": "GET",
+    "url": "localhost:3000/products",
+    "method": "POST",
     "sortNum": 20000,
     "created": "2022-07-01T18:46:11.650Z",
-    "modified": "2022-07-01T18:46:20.626Z",
-    "headers": []
+    "modified": "2022-07-04T17:18:07.789Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n    \"name\": \"ProdutoX\"\n  }",
+      "form": []
+    },
+    "tests": []
   },
   {
     "_id": "89b16580-8100-40a1-972a-da042234a8ba",

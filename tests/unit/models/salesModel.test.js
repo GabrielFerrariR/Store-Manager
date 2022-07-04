@@ -4,18 +4,18 @@ const connection = require('../../../models/connection');
 const salesModel = require('../../../models/salesModel');
 
 describe('salesModel', () => {
-  // const queryResult = [
-  //   [
-  //     {
-  //       sale_id: 1,
-  //       product_id: 1,
-  //       quantity: 3,
-  //       id:1,
-  //       date: "2021-09-09T04:54:54.000Z",
-  //     },
-  //   ],
-  //   [],
-  // ];
+  const queryResult = [
+    [
+      {
+        sale_id: 1,
+        product_id: 1,
+        quantity: 3,
+        id:1,
+        date: "2021-09-09T04:54:54.000Z",
+      },
+    ],
+    [],
+  ];
   const funcReturn = [
     {
       sale_id: 1,

@@ -3,7 +3,7 @@ const productsService = require('../services/productsService');
 const getAll = async (_req, res, next) => {
   try {
     const products = await productsService.getAll();
-    return res.status(200).send(products);
+    return res.status(200).json(products);
     } catch (error) {
     next(error);
   }
@@ -13,7 +13,7 @@ const getById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const productById = await productsService.getById(id);
-    return res.status(200).send(productById);
+    return res.status(200).json(productById);
   } catch (error) {
     next(error);
   }
@@ -51,7 +51,6 @@ const remove = async (req, res, next) => {
 const findByName = async (req, res, next) => {
   try {
     const { q } = req.query;
-    console.log(req.query, q);
     const result = await productsService.findByName(q);
     return res.status(200).json(result);
   } catch (error) {

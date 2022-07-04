@@ -2,7 +2,7 @@ const { expect } = require("chai");
 const sinon = require("sinon");
 const productsModel = require("../../../models/productsModel");
 const connection = require("../../../models/connection");
-// const productsService = require("../../../services/productsService");
+
 
 describe('productModel', () => {
   const queryResult = [[{
