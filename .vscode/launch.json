@@ -2,6 +2,19 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "name": "nodemon",
+      "program": "${workspaceFolder}/index.js",
+      "request": "launch",
+      "restart": true,
+      "runtimeExecutable": "npm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
       "name": "Launch via NPM",
       "request": "launch",
       "runtimeArgs": [
@@ -13,19 +26,6 @@
         "<node_internals>/**"
       ],
       "type": "node"
-    },
-    {
-      "name": "nodemon",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "program": "${workspaceFolder}/",
-      "request": "launch",
-      "restart": true,
-      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "type": "pwa-node"
     },
     {
       "name": "jest",

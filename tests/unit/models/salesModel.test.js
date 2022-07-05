@@ -4,27 +4,7 @@ const connection = require('../../../models/connection');
 const salesModel = require('../../../models/salesModel');
 
 describe('salesModel', () => {
-  const queryResult = [
-    [
-      {
-        sale_id: 1,
-        product_id: 1,
-        quantity: 3,
-        id:1,
-        date: "2021-09-09T04:54:54.000Z",
-      },
-    ],
-    [],
-  ];
-  const funcReturn = [
-    {
-      sale_id: 1,
-      product_id: 1,
-      quantity: 3,
-      id: 1,
-      date: "2021-09-09T04:54:54.000Z",
-    },
-  ];
+ 
   afterEach(sinon.restore)
   describe('getById', () => {
     const query = [[
@@ -56,5 +36,62 @@ describe('salesModel', () => {
       const response = await salesModel.addSale();
       expect(response).to.be.deep.equal(1);
     })
+  });
+  describe('getAll', () => {
+    const queryResult = [[
+      {
+        sale_id: 1,
+        product_id: 2,
+        quantity: 10,
+        id: 1,
+        date: '2022-07-05T21:02:05.000Z'
+      },
+      {
+        sale_id: 2,
+        product_id: 3,
+        quantity: 15,
+        id: 2,
+        date: '2022-07-05T21:02:05.000Z'
+      }
+    ]]
+    it('retorna um array de objetos', async () => {
+      sinon.stub(connection, "execute").resolves(queryResult);
+      const response = await salesModel.getAll();
+      expect(response).to.be.an('array');
+    });
   })
+  describe("getSaleById", () => {
+    const queryResult = [
+      [
+        {
+          sale_id: 1,
+          product_id: 2,
+          quantity: 10,
+          id: 1,
+          date: "2022-07-05T21:02:05.000Z",
+        }
+      ],
+    ];
+    it("retorna um array de objetos", async () => {
+      sinon.stub(connection, "execute").resolves(queryResult);
+      const response = await salesModel.getSaleById();
+      expect(response).to.be.an("array");
+    });
+  });
+  describe("remove", () => {
+    const changingQuery = [{}];
+    it("retorna um objeto", async () => {
+      sinon.stub(connection, "execute").resolves(changingQuery);
+      const result = await salesModel.remove();
+      expect(result).to.be.an("object");
+    });
+  });
+  describe("update", () => {
+    const changingQuery = [{}];
+    it("retorna um objeto", async () => {
+      sinon.stub(connection, "execute").resolves(changingQuery);
+      const result = await salesModel.update();
+      expect(result).to.be.an('object');
+    });
+  });
 })
