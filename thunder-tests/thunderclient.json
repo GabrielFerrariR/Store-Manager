@@ -19,10 +19,10 @@
     "containerId": "",
     "name": "get/",
     "url": "localhost:3000/sales/1",
-    "method": "GET",
+    "method": "DELETE",
     "sortNum": 10000,
     "created": "2022-06-30T21:20:37.124Z",
-    "modified": "2022-07-01T22:00:28.848Z",
+    "modified": "2022-07-05T20:41:04.917Z",
     "headers": [],
     "params": [],
     "body": {
@@ -90,16 +90,16 @@
     "colId": "2f289d11-f031-43f1-89eb-6a058462250d",
     "containerId": "",
     "name": "put/:id",
-    "url": "localhost:3000/sales/6",
+    "url": "localhost:3000/sales/1",
     "method": "PUT",
     "sortNum": 30000,
     "created": "2022-07-01T20:06:44.825Z",
-    "modified": "2022-07-01T21:52:55.990Z",
+    "modified": "2022-07-05T20:53:15.049Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "  [\n    {\n      \"productId\": 1,\n      \"quantity\":10\n    },\n    {\n      \"productId\": 10,\n      \"quantity\":50\n    }\n  ]",
+      "raw": "  [\n    {\n      \"productId\": 1,\n      \"quantity\":10\n    },\n    {\n      \"productId\": 3,\n      \"quantity\":50\n    }\n  ]",
       "form": []
     },
     "tests": []

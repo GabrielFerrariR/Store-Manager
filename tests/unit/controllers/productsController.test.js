@@ -112,6 +112,7 @@ describe('Controller de produtos', () => {
         req.query = sinon.stub().returns(req);
       });
       afterEach(sinon.restore);
+      
       it("responde com status 200", async () => {
         await productsController.findByName(req, res, next);
         expect(res.status.calledWith(200)).to.be.equal(true);
@@ -121,9 +122,8 @@ describe('Controller de produtos', () => {
         expect(res.json.calledWith(sinon.match.array)).to.be.equal(true);
       })
       })
-    });
-  })
-
+  });
+  
   describe('caso de erro', () => {
     const res = {};
     const req = {};
@@ -172,4 +172,5 @@ describe('Controller de produtos', () => {
       expect(next.called).to.be.equal(true);
     });
   })
-})
+  })
+
