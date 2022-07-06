@@ -36,7 +36,7 @@ const update = async (body, id) => {
 const remove = async (id) => {
   const { affectedRows } = await productsModel.remove(id);
   if (affectedRows > 0) { 
-    return true;
+    return undefined;
   }
   throw new ErrorBody(404, 'Product not found');
 };
@@ -47,6 +47,8 @@ const findByName = async (q) => {
     return allProducts;
   }
   const product = await productsModel.findByName(q);
+  if (product.length === 0)
+    throw new ErrorBody(404, "No product was found with that name");
   return product;
 };
 

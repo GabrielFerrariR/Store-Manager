@@ -109,16 +109,16 @@
     "colId": "2f289d11-f031-43f1-89eb-6a058462250d",
     "containerId": "",
     "name": "get/search",
-    "url": "localhost:3000/products/search?q=Martelo",
+    "url": "localhost:3000/products/search?q=mar",
     "method": "GET",
     "sortNum": 40000,
     "created": "2022-07-04T13:52:05.000Z",
-    "modified": "2022-07-04T14:20:08.804Z",
+    "modified": "2022-07-06T17:46:45.283Z",
     "headers": [],
     "params": [
       {
         "name": "q",
-        "value": "Martelo",
+        "value": "mar",
         "isPath": false
       }
     ],
