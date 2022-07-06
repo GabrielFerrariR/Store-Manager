@@ -47,8 +47,7 @@ const findByName = async (q) => {
     return allProducts;
   }
   const product = await productsModel.findByName(q);
-  if (product.length === 0)
-    throw new ErrorBody(404, "No product was found with that name");
+  if (product.length === 0) throw new ErrorBody(404, 'No product was found with that name');
   return product;
 };
 
