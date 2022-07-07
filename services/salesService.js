@@ -26,7 +26,6 @@ const getAll = async () => {
 
 const getById = async (id) => {
   const result = await salesModel.getSaleById(id);
-  console.log(result);
   if (result.length === 0) throw new ErrorBody(404, 'Sale not found');
   return result.map(saleIdSerialize);
 };
@@ -34,17 +33,18 @@ const getById = async (id) => {
 const remove = async (id) => {
   const { affectedRows } = await salesModel.remove(id);
   if (affectedRows > 0) {
-    return true;
+    return undefined;
   }
   throw new ErrorBody(404, 'Sale not found');
 };
 
 const update = async (body, id) => {
   body.map((prod) => validationErrHandler(saleSchema, prod));
+
   await Promise.all(body.map(async (e) => productsService.getById(e.productId)));
+
   const updates = await Promise.all(body.map(async ({ productId, quantity }) => 
     salesModel.update(id, productId, quantity)));
-  console.log('array ->>>>>', updates);
   const { affectedRows } = updates[0];
   if (affectedRows > 0) {
     return {

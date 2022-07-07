@@ -6,7 +6,6 @@ function ErrorBody(status, message) {
 function validationErrHandler(schema, toValidate) {
   const { error, value } = schema.validate(toValidate);
   if (error) {
-    console.log('validaçao', error);
     const { message, type } = error.details[0];
     switch (type) {
       case 'any.required':
