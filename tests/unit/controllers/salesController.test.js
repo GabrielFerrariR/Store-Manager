@@ -5,6 +5,8 @@ const salesController = require("../../../controllers/salesController");
 
 describe("SalesController", () => {
   describe('em caso de sucesso', () => {
+    /**@type {Record<string, sinon.SinonStub> } */
+    //{[prop:string]: sinon.SinonStub}
     
     const res = {};
     const req = {};

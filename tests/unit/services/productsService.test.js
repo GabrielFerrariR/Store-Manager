@@ -193,5 +193,4 @@ describe('productsService', () => {
       expect(result).to.be.deep.equal([{}, {}]);
     })
   })
-
 })

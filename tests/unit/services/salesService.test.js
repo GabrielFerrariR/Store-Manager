@@ -22,7 +22,7 @@ describe('salesService', () => {
       sinon.stub(salesModel, "getById").resolves([]);
       sinon.stub(salesModel, "addSale").resolves(3);
       try {
-        const response =await salesService.add(body)
+        const response = await salesService.add(body)
         expect(response).throw()
       } catch (error) {
         expect(error.message).to.be.equal('Product not found')
