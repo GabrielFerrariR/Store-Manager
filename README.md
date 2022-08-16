@@ -1,5 +1,44 @@
+<h1 align="center"> Store Manager 📦 </h1>
 
+## Sobre
 
-  Você vai desenvolver sua primeira API utilizando a arquitetura MSC (model-service-controller)!
+Essa aplicação se trata de uma API no padrão REST, sendo um sistema de gerenciamento de vendas no formato dropshipping, sendo possível fazer o CRUD (create, read, update e delete) de produtos e vendas.
+Além disso, o projeto segue um padrão de arquitetura MSC (model, service, controler) e TDD (desenvolvimento orientado por testes).
 
-  A API a ser construída é um sistema de gerenciamento de vendas no formato dropshipping em que será possível criar, visualizar, deletar e atualizar produtos e vendas. Você deverá utilizar o banco de dados MySQL para a gestão de dados. Além disso, a API deve ser RESTful.
+## Tecnologias utilizadas
+
+> - Node.js
+> - Express.js
+> - MySql com MySql2
+> - Mocha, Chai e Sinon
+> - Joi
+> - Docker
+> - Swagger
+
+## Rotas
+
+![rotas swagger](rotas.png)
+
+## Cobertura de testes
+
+![test coverage](testes.png)
+
+## Rodando o projeto
+
+```bash
+git clone git@github.com:GabrielFerrariR/Store-Manager.git
+cd Store-Manager/
+npm install
+npm start
+```
+
+Usando docker
+
+```bash
+docker-compose up -d
+docker exec -it <container node> bash
+npm install
+npm run migration
+npm run seed
+npm start 
+```
